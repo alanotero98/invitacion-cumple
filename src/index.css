@@ -1,0 +1,18 @@
+.acceptance-form, .location-section {
+  text-align: center;
+  margin: 20px;
+}
+
+.acceptance-form input {
+  padding: 10px;
+  margin: 10px;
+  width: 80%;
+}
+
+.acceptance-form button {
+  background: green;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
