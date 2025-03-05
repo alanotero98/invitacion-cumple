@@ -16,7 +16,7 @@ const MessageSection = ({ onComplete }) => {
   useEffect(() => {
     let delay = 2500; // Duración normal
 
-    if (messages[currentMessage].image === "../public/fiesta/mate.webp") {
+    if (messages[currentMessage].text === "🍾 Traer droga y alcohol🩳") {
       delay = 5000; // Último mensaje con mate.webp dura 3s
     }
 
