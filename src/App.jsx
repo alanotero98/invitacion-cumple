@@ -71,7 +71,7 @@ function App() {
         loop
         style={{ display: "none" }} // Lo hace invisible hasta que el audio se reproduce
       >
-        <source src="/brasilero.mp3" type="audio/mpeg" />
+        <source src="/gordo.mp3" type="audio/mpeg" />
         Tu navegador no soporta audio.
       </audio>
 

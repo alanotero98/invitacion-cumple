@@ -2,31 +2,47 @@ import React, { useState, useEffect } from "react";
 
 const MessageSection = ({ onComplete }) => {
   const messages = [
-    "Ya cumplí años hace un mes...",
-    "¿Sí? ¿Y? ¿Qué me importa papaaaa? 🤷‍♂️",
-    "Lo festejamos igual 🎉",
-    "📅 El lunes 3/3 a las 10:30hs",
-    "🏖️ Pool Party por mi cumpleaños 🏊‍♂️",
-    "🍾 Traé tu bebida y traje de baño 🩳",
-    "DONDE????",
+    { text: "Se viene se viene?" },
+    { text: "''¿Sí? ¿que se viene contame? 🤷‍♂️''", image: "../public/fiesta/g.png" },
+    { text: "Mi fc pedazo de gil pero remaster 2.0 🎉", image: "../public/fiesta/jc.png" },
+    { text: "📅 Domingo 16 de Marzo" },
+    { text: "🏖️ Quinta en varela 🏊‍♂️", image: "../public/fiesta/noba.png" },
+    { text: "🍾 Traer droga y alcohol🩳", image: "../public/fiesta/mate.webp" },
+    { text: "DONDE???" },
   ];
-  
+
   const [currentMessage, setCurrentMessage] = useState(0);
 
   useEffect(() => {
-    if (currentMessage < messages.length - 1) {
-      const interval = setInterval(() => {
-        setCurrentMessage((prev) => prev + 1);
-      }, 2500);
+    let delay = 2500; // Duración normal
 
-      return () => clearInterval(interval);
+    if (messages[currentMessage].image === "../public/fiesta/mate.webp") {
+      delay = 5000; // Último mensaje con mate.webp dura 3s
+    }
+
+    if (currentMessage < messages.length - 1) {
+      const interval = setTimeout(() => {
+        setCurrentMessage((prev) => prev + 1);
+      }, delay);
+
+      return () => clearTimeout(interval);
     } else {
-      // Llamar a onComplete cuando termina el último mensaje
-      setTimeout(onComplete, 2500);
+      setTimeout(onComplete, delay);
     }
   }, [currentMessage, onComplete]);
 
-  return <h2>{messages[currentMessage]}</h2>;
+  return (
+    <div style={{ textAlign: "center" }}>
+      <h2>{messages[currentMessage].text}</h2>
+      {messages[currentMessage].image && (
+        <img
+          src={messages[currentMessage].image}
+          alt="Imagen relacionada"
+          style={{ width: "280px", marginTop: "10px", borderRadius: "10px" }}
+        />
+      )}
+    </div>
+  );
 };
 
 export default MessageSection;

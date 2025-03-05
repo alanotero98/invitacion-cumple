@@ -4,7 +4,7 @@ const AcceptanceForm = () => {
   const [name, setName] = useState("");
 
   const handleAccept = () => {
-    const phoneNumber = "5491170038287"; // Reemplaza con el número de WhatsApp del cumpleañero
+    const phoneNumber = "5491138418402"; // Reemplaza con el número de WhatsApp del cumpleañero
     const message = `¡Hola! Soy ${name} y confirmo mi asistencia a tu cumpleaños 🎉.`;
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     
